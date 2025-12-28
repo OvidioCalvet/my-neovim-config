@@ -23,4 +23,3 @@ vim.opt.scrolloff = 15
 vim.opt.signcolumn = "yes"
 
 vim.opt.updatetime = 50
-
