@@ -1,6 +1,6 @@
 -- [[ Telescope ]]
-vim.keymap.set("n", "<leader>ff", ":Telescope find_files<cr>") -- fuzzy find
-vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<cr>") -- grep files
+vim.keymap.set("n", "<leader>ff", ":Telescope find_files<cr>")
+vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<cr>")
 
 -- [[ Harpoon ]]
 local harpoon = require("harpoon")
@@ -13,7 +13,8 @@ vim.keymap.set("n", "<leader>1", function() harpoon:list():select(1) end)
 vim.keymap.set("n", "<leader>2", function() harpoon:list():select(2) end)
 vim.keymap.set("n", "<leader>3", function() harpoon:list():select(3) end)
 
-
--- [[ LspToggle ]] configure when you need this*
--- vim.keymap.set("n", "<leader>gd", "")
--- vim.keymap.set("n", "<leader>sd", "")
+-- [[ LspToggle ]]
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)

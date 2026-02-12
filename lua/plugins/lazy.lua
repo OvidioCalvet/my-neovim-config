@@ -1,4 +1,4 @@
--- [[ Lazy ]] 
+-- [[ Bootstrap Lazy ]] 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
     local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -38,7 +38,16 @@ require("lazy").setup({
             local configs = require("nvim-treesitter.configs")
             configs.setup({
                 modules = {},
-                ensure_installed = { "html", "css", "lua", "python", "javascript", "cpp" },
+                ensure_installed = {
+                    "html",
+                    "css",
+                    "lua",
+                    "python",
+                    "javascript",
+                    "typescript",
+                    "cpp",
+                    "go"
+                },
                 ignore_install = {},
                 auto_install = false,
                 sync_install = false,
@@ -46,6 +55,11 @@ require("lazy").setup({
                 indent = { enable = true },
             })
         end
+    },
+
+    { -- [[ Smooth Scrolling ]]
+        "karb94/neoscroll.nvim",
+        opts = {}
     },
 
     { -- [[ Telescope ]]
@@ -59,45 +73,60 @@ require("lazy").setup({
         config = true
     },
 
-    { -- [[ Minimal LSP Setup ]]
-        "neovim/nvim-lspconfig",
-        dependencies = {
-            "williamboman/mason.nvim",
-            "williamboman/mason-lspconfig.nvim",
-            {
-                "folke/lazydev.nvim",
-                ft = "lua",
-                opts = {
-                    library = {
-                        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-                    },
-                },
+    { -- [[ Lazydev ]]
+        "folke/lazydev.nvim",
+        ft = "lua",
+        opts = {
+            library = {
+                { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+                { path = "lazy.lua" }
             },
         },
+    },
+
+    { -- [[ Minimal LSP ]]
+        "neovim/nvim-lspconfig",
+        event = { "BufReadPre", "BufNewFile" },
+        lazy = false,
+        dependencies = {
+            {
+                "williamboman/mason.nvim",
+                config = true,
+            },
+            {
+                "williamboman/mason-lspconfig.nvim",
+                config = function()
+                    require("mason-lspconfig").setup({
+                        ensure_installed = {
+                            "lua_ls", "clangd", "pyright", "gopls",
+                            "cssls", "html", "tailwindcss", "ts_ls", "eslint"
+                        }
+                    })
+                end,
+            },
+            "folke/lazydev.nvim",
+        },
+
         config = function()
-            require("mason").setup()
-            require("mason-lspconfig").setup({
-                ensure_installed = {
-                    "lua_ls",
-                    "pyright",
-                    "clangd",
-                    "html",
-                    "cssls",
-                },
-            })
+            local mason_lspconfig = require("mason-lspconfig")
+            local servers = mason_lspconfig.get_installed_servers()
 
-            local lspconfig = require("lspconfig")
-
-            local servers = {
-                pyright = {},
-                clangd = {},
-                html = {},
-                cssls = {},
-            }
-
-            for name, opts in pairs(servers) do
-                lspconfig[name].setup(opts)
+            for _, server in ipairs(servers) do
+                vim.lsp.config(server, {})
+                vim.lsp.enable(server)
             end
         end,
     },
+
+        { -- [[ Completion Engine]]
+        'saghen/blink.cmp',
+        dependencies = 'rafamadriz/friendly-snippets',
+        version = 'v0.*',
+        opts = {
+            keymap = { preset = 'default' },
+            sources = {
+                default = { 'lsp', 'path', 'snippets', 'buffer' },
+            },
+        },
+    }
 })
