@@ -1,6 +1,6 @@
 -- [[ Bootstrap Lazy ]] 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
     local lazyrepo = "https://github.com/folke/lazy.nvim.git"
     local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
     if vim.v.shell_error ~= 0 then
@@ -75,7 +75,7 @@ require("lazy").setup({
 
     { -- [[ Lazydev ]]
         "folke/lazydev.nvim",
-        ft = "lua",
+        lazy = false,
         opts = {
             library = {
                 { path = "${3rd}/luv/library", words = { "vim%.uv" } },
@@ -100,24 +100,14 @@ require("lazy").setup({
                         ensure_installed = {
                             "lua_ls", "clangd", "pyright", "gopls",
                             "cssls", "html", "tailwindcss", "ts_ls", "eslint"
-                        }
+                        },
+                        automatic_enable = true
                     })
                 end,
             },
             "folke/lazydev.nvim",
         },
-
-        config = function()
-            local mason_lspconfig = require("mason-lspconfig")
-            local servers = mason_lspconfig.get_installed_servers()
-
-            for _, server in ipairs(servers) do
-                vim.lsp.config(server, {})
-                vim.lsp.enable(server)
-            end
-        end,
     },
-
         { -- [[ Completion Engine]]
         'saghen/blink.cmp',
         dependencies = 'rafamadriz/friendly-snippets',
