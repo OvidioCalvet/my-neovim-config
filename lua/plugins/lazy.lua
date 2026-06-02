@@ -1,4 +1,5 @@
 -- [[ Bootstrap Lazy ]] 
+--
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.uv.fs_stat(lazypath) then
     local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -19,21 +20,21 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 
     { -- [[ Colorscheme ]]
-        { "vague2k/vague.nvim",
+        { "rose-pine/neovim",
             priority = 1000 ,
             config = function()
-                require("vague").setup({
+                require("rose-pine").setup({
                     transparent = true
                 })
-                vim.cmd.colorscheme("vague")
+                vim.cmd.colorscheme("rose-pine")
             end,
         }
     },
 
     { -- [[ Treesitter ]] 
         "nvim-treesitter/nvim-treesitter",
-        lazy = false,
         build = ":TSUpdate",
+        lazy = false,
         config = function ()
             local configs = require("nvim-treesitter.configs")
             configs.setup({
@@ -46,7 +47,8 @@ require("lazy").setup({
                     "javascript",
                     "typescript",
                     "cpp",
-                    "go"
+                    "go",
+                    "rust"
                 },
                 ignore_install = {},
                 auto_install = false,
@@ -108,7 +110,8 @@ require("lazy").setup({
             "folke/lazydev.nvim",
         },
     },
-        { -- [[ Completion Engine]]
+
+    { -- [[ Completion Engine]]
         'saghen/blink.cmp',
         dependencies = 'rafamadriz/friendly-snippets',
         version = 'v0.*',
