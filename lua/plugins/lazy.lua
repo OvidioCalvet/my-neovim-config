@@ -20,15 +20,25 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 
     { -- [[ Colorscheme ]]
-        { "rose-pine/neovim",
+        { "vague-theme/vague.nvim",
             priority = 1000 ,
             config = function()
-                require("rose-pine").setup({
+                require("vague").setup({
                     transparent = true
                 })
-                vim.cmd.colorscheme("rose-pine")
+                vim.cmd.colorscheme("vague")
             end,
         }
+    },
+
+    { -- [[ LuaLine ]]
+        "nvim-lualine/lualine.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        config = function()
+            require("lualine").setup({
+                options = { theme = "tomorrow_night" }
+            })
+        end,
     },
 
     { -- [[ Treesitter ]] 
@@ -36,9 +46,7 @@ require("lazy").setup({
         build = ":TSUpdate",
         lazy = false,
         config = function ()
-            local configs = require("nvim-treesitter.configs")
-            configs.setup({
-                modules = {},
+            require("nvim-treesitter").install({
                 ensure_installed = {
                     "html",
                     "css",
@@ -50,13 +58,20 @@ require("lazy").setup({
                     "go",
                     "rust"
                 },
-                ignore_install = {},
-                auto_install = false,
+                auto_install = true,
                 sync_install = false,
-                highlight = { enable = true },
-                indent = { enable = true },
             })
-        end
+        end,
+        init = function()
+            vim.api.nvim_create_autocmd("FileType", {
+                callback = function()
+                    pcall(vim.treesitter.start)
+                    pcall(function()
+                        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+                    end)
+                end,
+            })
+        end,
     },
 
     { -- [[ Smooth Scrolling ]]
@@ -66,7 +81,21 @@ require("lazy").setup({
 
     { -- [[ Telescope ]]
         'nvim-telescope/telescope.nvim', tag = '0.1.8',
-        dependencies = { 'nvim-lua/plenary.nvim'}
+        branch = "master",
+        dependencies = { 'nvim-lua/plenary.nvim'},
+        opts = {
+            defaults = {
+                layout_strategy = "vertical",
+                layout_config = {
+                    vertical = {
+                        width = 0.9,
+                        height = 0.9,
+                        preview_height = .75,
+                    },
+                },
+                preview = { treesitter = true, },
+            },
+        },
     },
 
     { -- [[ Harpoon ]]

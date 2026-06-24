@@ -19,7 +19,7 @@ vim.opt.undofile = true
 
 vim.opt.termguicolors = true
 
-vim.opt.scrolloff = 15
+vim.opt.scrolloff = 17
 vim.opt.signcolumn = "yes"
 
 vim.opt.updatetime = 50
