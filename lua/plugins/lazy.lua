@@ -46,7 +46,7 @@ require("lazy").setup({
         build = ":TSUpdate",
         lazy = false,
         config = function ()
-            require("nvim-treesitter").install({
+            require("nvim-treesitter.configs").setup({
                 ensure_installed = {
                     "html",
                     "css",
@@ -56,10 +56,13 @@ require("lazy").setup({
                     "typescript",
                     "cpp",
                     "go",
-                    "rust"
+                    "rust",
+                    "yaml",
+                    "bash"
                 },
                 auto_install = true,
                 sync_install = false,
+                highlight = { enable = true },
             })
         end,
         init = function()
@@ -82,18 +85,22 @@ require("lazy").setup({
     { -- [[ Telescope ]]
         'nvim-telescope/telescope.nvim', tag = '0.1.8',
         branch = "master",
-        dependencies = { 'nvim-lua/plenary.nvim'},
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'nvim-treesitter/nvim-treesitter',
+        },
         opts = {
             defaults = {
                 layout_strategy = "vertical",
                 layout_config = {
-                    vertical = {
-                        width = 0.9,
-                        height = 0.9,
-                        preview_height = .75,
-                    },
+                    vertical = { width = 0.7, },
                 },
                 preview = { treesitter = true, },
+            },
+            pickers = {
+                find_files = {
+                    theme = "dropdown",
+                },
             },
         },
     },
