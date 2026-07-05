@@ -26,7 +26,7 @@ around files, and a barebones minimal lsp that I can turn on and off when needed
 - Mason (LSP manager)
 - blink (completion engine)
 
-**File Structure**
+### File Structure
 ```
 nvim
 ├── init.lua
