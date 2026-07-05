@@ -43,12 +43,12 @@ nvim
 
 **SSH**
 ```bash
-git clone git@github.com:OvidioCalvet/my-neovim-config.git
+git clone git@github.com:OvidioCalvet/my-neovim-config.git ~/.config/nvim
 ```
 
 **HTTP**
 ```bash
-git clone https://github.com/OvidioCalvet/my-neovim-config.git
+git clone https://github.com/OvidioCalvet/my-neovim-config.git ~/.config/nvim
 ```
 
 ## Uninstall
