@@ -20,15 +20,14 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 
     { -- [[ Colorscheme ]]
-        { "vague-theme/vague.nvim",
-            priority = 1000 ,
-            config = function()
-                require("vague").setup({
-                    transparent = true
-                })
-                vim.cmd.colorscheme("vague")
-            end,
-        }
+        "vague-theme/vague.nvim",
+        priority = 1000 ,
+        config = function()
+            require("vague").setup({
+                transparent = true
+            })
+            vim.cmd.colorscheme("vague")
+        end,
     },
 
     { -- [[ LuaLine ]]
@@ -46,7 +45,8 @@ require("lazy").setup({
         build = ":TSUpdate",
         lazy = false,
         config = function ()
-            require("nvim-treesitter.configs").setup({
+            require("nvim-treesitter.config").setup({
+                install_dir = vim.fs.joinpath(vim.fn.stdpath("data"), "site"),
                 ensure_installed = {
                     "html",
                     "css",
