@@ -26,12 +26,12 @@ around files, and a barebones minimal lsp that I can turn on and off when needed
 - Lazy  (plugin manager)
 - Vague (colorscheme)
 - Lualine (conext line for vim)
-- Treesitter (language parser)
 - Neoscroll (smoother vim scrolling)
 - Telescope (file fzf)
 - Harpoon (bookmark files)
 - Lazydev (enhanced lua ls)
 - Mason (LSP manager)
+- Fidget (lsp notifications)
 - blink (completion engine)
 
 ### File Structure
