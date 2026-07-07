@@ -42,8 +42,8 @@ for your ease of personal configuration, and a quick install and uninstall comma
 <br>
 
 <div align="center">
-<div style="display: flex; justify-content: center; gap: 4em;">
-<div align="left">
+<div>
+<div style="display: inline-block; vertical-align: top; text-align: left; margin-right: 4em;">
 
 ### Plugins
 - Lazy  (plugin manager)
@@ -58,7 +58,7 @@ for your ease of personal configuration, and a quick install and uninstall comma
 - blink (completion engine)
 
 </div>
-<div align="left">
+<div style="display: inline-block; vertical-align: top; text-align: left;">
 
 ### File Structure
 ```
