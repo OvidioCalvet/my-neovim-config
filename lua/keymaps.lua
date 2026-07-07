@@ -18,6 +18,3 @@ vim.keymap.set("n", "J", "mzJ'z")
 -- Keeps search terms in the middle
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
-
--- <C-d> in vs code lol
-vim.keymap.set("n", "<leader>d", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
