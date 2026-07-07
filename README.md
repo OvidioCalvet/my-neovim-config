@@ -45,21 +45,7 @@ for your ease of personal configuration, and a quick install and uninstall comma
 <table>
   <tr>
     <td>
-
-### Plugins
-- Lazy  (plugin manager)
-- Vague (colorscheme)
-- Lualine (context line for vim)
-- Neoscroll (smoother vim scrolling)
-- Telescope (file fzf)
-- Harpoon (bookmark files)
-- Lazydev (enhanced lua ls)
-- Mason (LSP manager)
-- Fidget (lsp notifications)
-- blink (completion engine)
-
-    </td>
-    <td>
+    <div align="left">
 
 ### File Structure
 ```
@@ -73,8 +59,26 @@ nvim
 │       └── lazy.lua
 └── README.md
 ```
-    
+
+</div>
 </td>
+<td>
+<div align="left">
+
+### Plugins
+- Lazy  (plugin manager)
+- Vague (colorscheme)
+- Lualine (context line for vim)
+- Neoscroll (smoother vim scrolling)
+- Telescope (file fzf)
+- Harpoon (bookmark files)
+- Lazydev (enhanced lua ls)
+- Mason (LSP manager)
+- Fidget (lsp notifications)
+- blink (completion engine)
+
+    </div>
+    </td>
   </tr>
 </table>
 </div>
