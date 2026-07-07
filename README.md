@@ -1,4 +1,8 @@
-# Minimal Neovim Configuration
+<div align="center">
+    <br>
+    <h1><b>dotfiles.nvim</b></h1>
+    <br>
+</div>
 
 ### Introduction
 
