@@ -16,6 +16,8 @@
   </tr>
 </table>
 
+<br>
+
 ### Introduction
 
 Welcome to my personal neovim configuration. The idea of this project was to maximize my efficiency
