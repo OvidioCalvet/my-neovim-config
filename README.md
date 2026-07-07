@@ -8,6 +8,13 @@
     <br>
 </div>
 
+<table>
+  <tr>
+      <td><img width=100% height="1200" alt="image" src="https://github.com/user-attachments/assets/7e542482-7f02-454d-bfed-e6c6b2648980" /></td>
+      <td><img width=100% height="1200" alt="2026-07-06-205328_hyprshot" src="https://github.com/user-attachments/assets/576ab071-32dd-4b53-b704-312146e03a39" /></td>
+  </tr>
+</table>
+
 ### Introduction
 
 Welcome to my personal neovim configuration. The idea of this project was to maximize my efficiency
