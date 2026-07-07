@@ -31,6 +31,8 @@ want to have only exactly what I need to get the job done. A fzf for files, a co
 file navigation for files I am constantly switching between, quality of life settings for clean movement 
 around files, and a barebones minimal lsp that I can turn on and off when needed.
 
+<br>
+
 ### Plugins
 
 - Lazy  (plugin manager)
@@ -43,6 +45,8 @@ around files, and a barebones minimal lsp that I can turn on and off when needed
 - Mason (LSP manager)
 - Fidget (lsp notifications)
 - blink (completion engine)
+
+<br>
 
 ### File Structure
 ```
@@ -57,6 +61,8 @@ nvim
 └── README.md
 ```
 
+<br>
+
 ### Install
 
 **SSH**
@@ -69,9 +75,14 @@ git clone git@github.com:OvidioCalvet/my-neovim-config.git ~/.config/nvim
 git clone https://github.com/OvidioCalvet/my-neovim-config.git ~/.config/nvim
 ```
 
+<br>
+
 ### Uninstall
 
 ```bash
 rm -rf ~/.config/nvim
 mkdir ~/.config/nvim
 ```
+
+<br>
+
