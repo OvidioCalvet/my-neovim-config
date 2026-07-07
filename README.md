@@ -11,9 +11,9 @@
 ### Introduction
 
 Welcome to my personal neovim configuration. The idea of this project was to maximize my efficiency
-and productivty within the terminal. I was exposed to neovim by a popular creator by the name of the
-primeagen. I was fascinated by how quickly he could navigate and edit text files and I wanted exactly
-that. I took the time to learn how to use vim motions and got relatively good at them. 
+and productivty within the terminal. I was exposed to neovim by the primeagen. I was fascinated by 
+how quickly he could navigate and edit text files and I wanted that. I took the time to learn 
+how to use vim motions and got relatively good at them. 
 
 Here we are today with an extremely minimal and fast configuration that I curated with the vague colorscheme
 which I find really nice on the eyes especially for long programming sessions. The main principle is simple, I
