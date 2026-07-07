@@ -1,6 +1,6 @@
 # Minimal Neovim Configuration
 
-## Introduction
+### Introduction
 
 Welcome to my personal neovim configuration. The idea of this project was to maximize my efficiency
 and productivty within the terminal. I was exposed to neovim by a popular creator by the name of the
@@ -39,7 +39,7 @@ nvim
 └── README.md
 ```
 
-## Install
+### Install
 
 **SSH**
 ```bash
@@ -51,7 +51,7 @@ git clone git@github.com:OvidioCalvet/my-neovim-config.git ~/.config/nvim
 git clone https://github.com/OvidioCalvet/my-neovim-config.git ~/.config/nvim
 ```
 
-## Uninstall
+### Uninstall
 
 ```bash
 rm -rf ~/.config/nvim
