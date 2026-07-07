@@ -47,6 +47,9 @@ for your ease of personal configuration, and a quick install and uninstall comma
 <td valign="top">
 
 ### Plugins
+
+<div align="left">
+
 - Lazy  (plugin manager)
 - Vague (colorscheme)
 - Lualine (context line for vim)
@@ -58,10 +61,15 @@ for your ease of personal configuration, and a quick install and uninstall comma
 - Fidget (lsp notifications)
 - blink (completion engine)
 
+</div>
+
 </td>
 <td valign="top">
 
 ### File Structure
+
+<div align="left">
+
 ```
 nvim
 ├── init.lua
@@ -73,6 +81,8 @@ nvim
 │       └── lazy.lua
 └── README.md
 ```
+
+</div>
 
 </td>
 </tr>
