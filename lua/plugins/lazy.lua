@@ -39,43 +39,6 @@ require("lazy").setup({
         end,
     },
 
-    { -- [[ Treesitter ]] 
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
-        lazy = false,
-        config = function ()
-            require("nvim-treesitter.config").setup({
-                install_dir = vim.fs.joinpath(vim.fn.stdpath("data"), "site"),
-                ensure_installed = {
-                    "html",
-                    "css",
-                    "lua",
-                    "python",
-                    "javascript",
-                    "typescript",
-                    "cpp",
-                    "go",
-                    "rust",
-                    "yaml",
-                    "bash"
-                },
-                auto_install = true,
-                sync_install = false,
-                highlight = { enable = true },
-            })
-        end,
-        init = function()
-            vim.api.nvim_create_autocmd("FileType", {
-                callback = function()
-                    pcall(vim.treesitter.start)
-                    pcall(function()
-                        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-                    end)
-                end,
-            })
-        end,
-    },
-
     { -- [[ Smooth Scrolling ]]
         "karb94/neoscroll.nvim",
         opts = {}
@@ -86,20 +49,10 @@ require("lazy").setup({
         branch = "master",
         dependencies = {
             'nvim-lua/plenary.nvim',
-            'nvim-treesitter/nvim-treesitter',
         },
         opts = {
             defaults = {
-                layout_strategy = "vertical",
-                layout_config = {
-                    vertical = { width = 0.7, },
-                },
-                preview = { treesitter = true, },
-            },
-            pickers = {
-                find_files = {
-                    theme = "dropdown",
-                },
+                layout_strategy = "horizontal",
             },
         },
     },
