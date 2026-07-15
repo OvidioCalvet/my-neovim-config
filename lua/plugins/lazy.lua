@@ -29,12 +29,42 @@ require("lazy").setup({
         end,
     },
 
+    { -- [[ Trouble ]]
+        "folke/trouble.nvim",
+        opts = {}, -- for default options, refer to the configuration section for custom setup.
+        cmd = "Trouble"
+    },
+
+    { -- [[ Pipeline ]]
+        'topaxi/pipeline.nvim',
+
+        init = function()
+            vim.env.GITLAB_TOKEN = "glpat-vbaUQlmb3odeyjmzK97bjW86MQp1OndxCA.01.0y1lt3aus"
+        end,
+
+
+        opts = {
+            allowed_hosts = { "dev.darkwolf.io" },
+
+            providers = {
+                gitlab = {
+                    default_host = "dev.darkwolf.io",
+                },
+            },
+        },
+    },
+
     { -- [[ LuaLine ]]
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
             require("lualine").setup({
-                options = { theme = "tomorrow_night" }
+                options = { theme = "tomorrow_night" },
+                sections = {
+                    lualine_d = {
+                        { "pipeline" },
+                    },
+                },
             })
         end,
     },
