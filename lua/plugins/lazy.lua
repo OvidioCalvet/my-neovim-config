@@ -35,25 +35,6 @@ require("lazy").setup({
         cmd = "Trouble"
     },
 
-    { -- [[ Pipeline ]]
-        'topaxi/pipeline.nvim',
-
-        init = function()
-            vim.env.GITLAB_TOKEN = "glpat-vbaUQlmb3odeyjmzK97bjW86MQp1OndxCA.01.0y1lt3aus"
-        end,
-
-
-        opts = {
-            allowed_hosts = { "dev.darkwolf.io" },
-
-            providers = {
-                gitlab = {
-                    default_host = "dev.darkwolf.io",
-                },
-            },
-        },
-    },
-
     { -- [[ LuaLine ]]
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
